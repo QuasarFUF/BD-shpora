@@ -1,93 +1,47 @@
 # BD-shpora
-1. Подключение к базе данных:
 
-mysql -u username -p
+1. SELECT
 
+Команда SELECT используется для извлечения данных из таблицы базы данных.
 
- 2. Выбор базы данных:
+Пример:
 
-USE database_name;
+SELECT column1, column2 FROM table_name WHERE condition;
 
+2. UPDATE
 
- 3. Просмотр всех баз данных:
+Команда UPDATE используется для изменения существующих данных в таблице.
 
-SHOW DATABASES;
-
-
- 4. Создание новой базы данных:
-
-CREATE DATABASE database_name;
-
-
- 5. Удаление базы данных:
-
-DROP DATABASE database_name;
-
-
- 6. Просмотр таблиц в базе данных:
-
-SHOW TABLES;
-
-
- 7. Создание новой таблицы:
-
-CREATE TABLE table_name (
-    column1 datatype,
-    column2 datatype,
-    ...
-);
-
-
- 8. Просмотр структуры таблицы:
-
-DESCRIBE table_name;
-
-
- 9. Удаление таблицы:
-
-DROP TABLE table_name;
-
-
- 10. Вставка данных в таблицу:
-
-INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);
-
-
- 11. Выборка данных из таблицы:
-
-SELECT * FROM table_name;
-
-
- 12. Обновление данных:
+Пример:
 
 UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
 
 
- 13. Удаление данных:
+3. INSERT
+
+Команда INSERT используется для добавления новых строк в таблицу.
+
+Пример:
+
+INSERT INTO table_name (column1, column2) VALUES (value1, value2);
+
+
+INSERT INTO table_name (column1, column2) VALUES (value1, value2), (value3, value4);
+
+4. DELETE
+
+Команда DELETE используется для удаления данных из таблицы.
+
+Пример:
 
 DELETE FROM table_name WHERE condition;
 
 
- 14. Добавление нового столбца в таблицу:
+5. TRUNCATE
 
-ALTER TABLE table_name ADD column_name datatype;
+Команда TRUNCATE используется для удаления всех строк из таблицы, но структура таблицы сохраняется.
 
+Пример:
 
- 15. Удаление столбца из таблицы:
+TRUNCATE TABLE table_name;
 
-ALTER TABLE table_name DROP COLUMN column_name;
-
-
- 16. Создание индекса:
-
-CREATE INDEX index_name ON table_name (column_name);
-
-
- 17. Удаление индекса:
-
-DROP INDEX index_name ON table_name;
-
-
- 18. Выход из MySQL:
-
-EXIT;
