@@ -1,47 +1,49 @@
 # BD-shpora
 
-1. SELECT
+Измените статус (status) заказа под номером (id) 5 с delivery на success.
 
-Команда SELECT используется для извлечения данных из таблицы базы данных.
+update orders set status='success' where id=5
 
-Пример:
+Увеличьте цену 5 самых дешевых товаров на 5%
 
-SELECT column1, column2 FROM table_name WHERE condition;
+update products set price=price*1.05 order by price limit 5
 
-2. UPDATE
+Теперь самых дорогих:
 
-Команда UPDATE используется для изменения существующих данных в таблице.
+update products set price=price*1.05 order by price desc limit 5
 
-Пример:
+У отмененных заказов status равен "cancelled". У новых заказов status равен "new".
+номер (id) и сумму (sum) заказа.
 
-UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
+Типы данных:
 
+NULL – это особое слово в MySQL и в отличии от "cancelled" или "new", его нужно писать без кавычек. А чтобы сравнить значение в поле с NULL, нужно использовать не символы равенства (=) и неравенства (<>), а специальное выражение IS NULL или IS NOT NULL.
+Новые записи в таблицу можно добавить не только с помощью VALUES, но и с помощью SET. Следующие два запроса идентичны:
 
-3. INSERT
+INSERT INTO table (field1, field2) VALUES (value1, value2);
 
-Команда INSERT используется для добавления новых строк в таблицу.
+INSERT INTO table SET field1=value1, field2=value2;
 
-Пример:
+Добавьте в таблицу users нового пользователя
 
-INSERT INTO table_name (column1, column2) VALUES (value1, value2);
+insert into users SET id=10, first_name='Никита', last_name='Петров'
 
+Добавьте в таблицу products новый товар
 
-INSERT INTO table_name (column1, column2) VALUES (value1, value2), (value3, value4);
-
-4. DELETE
-
-Команда DELETE используется для удаления данных из таблицы.
-
-Пример:
-
-DELETE FROM table_name WHERE condition;
-
-
-5. TRUNCATE
-
-Команда TRUNCATE используется для удаления всех строк из таблицы, но структура таблицы сохраняется.
-
-Пример:
-
-TRUNCATE TABLE table_name;
-
+insert into products (id, name, count, price) value
+INSERT INTO table (column1, column2)
+VALUES (value1, value2);
+INSERT INTO table (column1, column2)
+VALUES (value11, value12),
+(value21, value22), ..:
+INSERT INTO table1 (column1, column2)
+SELECT (col1, col2) FROM table2;
+UPDATE table1
+SET column1 = new_value;
+UPDATE table1
+SET column1 = new_value
+column2 = new_value
+WHERE condition;
+DELETE FROM table;
+DELETE FROM table
+WHERE condition;
